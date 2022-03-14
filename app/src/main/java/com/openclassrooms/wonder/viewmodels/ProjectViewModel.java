@@ -1,7 +1,8 @@
 package com.openclassrooms.wonder.viewmodels;
 
-import android.arch.lifecycle.ViewModel;
-import android.support.annotation.Nullable;
+
+import androidx.annotation.Nullable;
+import androidx.lifecycle.ViewModel;
 
 import com.openclassrooms.wonder.repositories.ProjectRepository;
 import com.openclassrooms.wonder.models.ApiResponse;

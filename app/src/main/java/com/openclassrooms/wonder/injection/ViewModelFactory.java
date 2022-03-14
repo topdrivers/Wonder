@@ -1,7 +1,8 @@
 package com.openclassrooms.wonder.injection;
 
-import android.arch.lifecycle.ViewModel;
-import android.arch.lifecycle.ViewModelProvider;
+
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.openclassrooms.wonder.repositories.CommentRepository;
 import com.openclassrooms.wonder.repositories.ProjectRepository;

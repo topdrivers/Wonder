@@ -1,26 +1,16 @@
 package com.openclassrooms.wonder.controllers.fragments;
 
-import android.animation.Animator;
-import android.arch.lifecycle.ViewModelProviders;
-import android.graphics.Color;
-import android.os.Build;
+
 import android.os.Bundle;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.animation.FastOutSlowInInterpolator;
 import android.util.Log;
 import android.view.View;
-import android.view.animation.AccelerateDecelerateInterpolator;
-import android.view.animation.AccelerateInterpolator;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
-import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProviders;
 
 import com.bumptech.glide.Glide;
 import com.openclassrooms.wonder.base.BaseFragment;
@@ -39,9 +29,7 @@ import butterknife.OnClick;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
-/**
- * A simple {@link Fragment} subclass.
- */
+
 public class DetailFragment extends BaseFragment {
 
     // FOR DATA
@@ -73,7 +61,7 @@ public class DetailFragment extends BaseFragment {
 
     private void configureViewModel(){
         ViewModelFactory mViewModelFactory = Injection.provideViewModelFactory();
-        this.projectDetailViewModel = ViewModelProviders.of(this, mViewModelFactory).get(ProjectDetailViewModel.class);
+        this.projectDetailViewModel = ViewModelProviders.of(this, (ViewModelProvider.Factory) mViewModelFactory).get(ProjectDetailViewModel.class);
         this.projectDetailViewModel.init(this.getProjectIdFromBundle());
     }
 

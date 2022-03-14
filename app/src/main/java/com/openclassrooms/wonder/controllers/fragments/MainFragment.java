@@ -1,20 +1,15 @@
 package com.openclassrooms.wonder.controllers.fragments;
 
 
-import android.app.ActivityOptions;
-import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
-import android.os.Build;
+
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.View;
-import android.view.animation.AnimationUtils;
-import android.view.animation.LayoutAnimationController;
+
+import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.bumptech.glide.Glide;
 import com.openclassrooms.wonder.controllers.activities.DetailActivity;
@@ -35,9 +30,6 @@ import butterknife.BindView;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class MainFragment extends BaseFragment {
 
     //FOR DATA
@@ -47,8 +39,9 @@ public class MainFragment extends BaseFragment {
     public static final String REQUEST_LANDSCAPE = "landscape";
 
     // FOR DESIGN
-    @BindView(R.id.fragment_main_recycler_view) RecyclerView recyclerView;
-    @BindView(R.id.fragment_main_swipe_container) SwipeRefreshLayout swipeRefreshLayout;
+    @BindView(R.id.fragment_main_recycler_view)
+    RecyclerView recyclerView;
+    @BindView(R.id.fragment_main_swipe_container)    SwipeRefreshLayout swipeRefreshLayout;
     private ProjectAdapter projectAdapter;
 
     @Override
@@ -67,7 +60,8 @@ public class MainFragment extends BaseFragment {
 
     private void configureViewModel(){
         ViewModelFactory mViewModelFactory = Injection.provideViewModelFactory();
-        this.projectViewModel = ViewModelProviders.of(this, mViewModelFactory).get(ProjectViewModel.class);
+
+        this.projectViewModel = ViewModelProviders.of(this,mViewModelFactory).get(ProjectViewModel.class);
         this.projectViewModel.init(REQUEST_ANDROID);
     }
 
@@ -75,6 +69,7 @@ public class MainFragment extends BaseFragment {
         this.projectAdapter = new ProjectAdapter(new ArrayList<>(), Glide.with(this));
         this.recyclerView.setAdapter(this.projectAdapter);
         this.recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
         ItemClickSupport.addTo(recyclerView, R.layout.fragment_main_item)
                 .setOnItemClickListener((rv, position, v) -> this.navigateToDetail(this.projectAdapter.getProject(position)));
         this.swipeRefreshLayout.setOnRefreshListener(() -> this.refreshProjects(REQUEST_ANDROID));

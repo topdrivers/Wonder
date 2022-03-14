@@ -1,11 +1,9 @@
 package com.openclassrooms.wonder.controllers.activities;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.VisibleForTesting;
-import android.support.design.widget.BottomNavigationView;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.openclassrooms.wonder.controllers.fragments.MainFragment;
 import com.openclassrooms.wonderfuloc.R;

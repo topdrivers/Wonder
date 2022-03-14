@@ -1,7 +1,8 @@
 package com.openclassrooms.wonder.utils;
 
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * Created by Philippe on 27/03/2018.

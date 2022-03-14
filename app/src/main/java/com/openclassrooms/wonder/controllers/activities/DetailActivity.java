@@ -1,8 +1,9 @@
 package com.openclassrooms.wonder.controllers.activities;
 
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.openclassrooms.wonderfuloc.R;
 import com.openclassrooms.wonder.controllers.fragments.DetailFragment;
